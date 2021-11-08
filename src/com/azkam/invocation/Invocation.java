@@ -5,6 +5,7 @@ import com.azkam.dao.DataManager;
 import com.azkam.entities.Personne;
 import com.azkam.exception.UncallableMethodException;
 
+import javax.xml.crypto.Data;
 import java.lang.reflect.Method;
 
 /**
@@ -85,8 +86,8 @@ public class Invocation {
         this.cible = cible;
     }
 
-    public String getDao(){
-        return this.cible.toString();
+    public DataManager getDao(){
+        return (DataManager) this.cible;
     }
 
     // petit programme de test

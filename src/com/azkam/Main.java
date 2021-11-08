@@ -34,7 +34,6 @@ public class Main {
 
 
         if(choix.equals("1")){
-            System.out.println("DEMARRAGE DU SERVEUR");
             Server s = new Server();
             s.start();
         }else if(choix.equals("2")) {

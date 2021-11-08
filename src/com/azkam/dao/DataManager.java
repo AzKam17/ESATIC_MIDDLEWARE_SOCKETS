@@ -36,10 +36,11 @@ public class DataManager
      * @throws InvalidIdException dans le cas où l'identifiant
      * n'est attribué à aucune personne
      */
-    public synchronized Personne getPersonne(int id) throws InvalidIdException
+    public synchronized Personne getPersonne(String id) throws InvalidIdException
     {
-        if (id >= personneVector.size()) throw new InvalidIdException("invalid index value : "+id);
-        return (personneVector.elementAt(id));
+        if (Integer.parseInt(id) >= personneVector.size()) throw new InvalidIdException("invalid index value : "+id);
+        Personne p = personneVector.get(Integer.parseInt(id));
+        return p;
     }
 
     /**
@@ -58,7 +59,7 @@ public class DataManager
      * Programme qui permet de tester le fonctionnement de la classe
      * <code>DataManager</code> et de ses opérations de gestion de
      * personnes.
-     */
+
     public static void main(String argv[])
     {
         DataManager dm = new DataManager();
@@ -104,12 +105,13 @@ public class DataManager
         System.out.println("- Identificateur de Gérard, 29 ans = "+dm.getId(new Personne(29, "Gérard")));
         System.out.println("- Identificateur de Maurice, 54 ans = "+dm.getId(new Personne(54,"Maurice")));
         System.out.println("- Identificateur de Marie-Germaine, 20 ans = "+dm.getId(new Personne(20,"Marie-Germaine")));
-    }
+    }*/
 
     @Override
     public String toString() {
+        System.out.println("");
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         String msg = "";
-        msg += ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>";
         for(int i = 0; i < personneVector.size(); i++){
             Personne p = personneVector.get(i);
             msg += "\nID : " + i + " - String : " + p.toString() + "\n";

@@ -12,6 +12,10 @@ public class Command {
         return o;
     }
 
+    public Command() {
+        super();
+    }
+
     public Command(Object o){
         super();
         this.o = o;
